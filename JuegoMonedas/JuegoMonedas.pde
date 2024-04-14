@@ -1,9 +1,11 @@
 private Personaje personaje;
 private JoyPad joyPad;
 private Moneda moneda;
+private Habitacion habitacion;
 
 public void setup(){
   size(600,600);
+  habitacion = new Habitacion(500,500,0,new PVector(0,0));
   personaje = new Personaje();
   personaje.setPosicion(new PVector(100,200));
   personaje.setVelocidad(new PVector(5,5));
@@ -13,6 +15,7 @@ public void setup(){
 
 public void draw(){
   background(#5A5757);
+  habitacion.dibujarPiso();
   personaje.display();
   moneda.display();
   if(joyPad.isUpPressed()){
