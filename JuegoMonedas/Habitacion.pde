@@ -32,4 +32,12 @@ class Habitacion{
     }
     
   }
+  
+  public PVector getPosicion(){
+    return this.posicion;
+  }
+  
+  public int getAncho(){
+    return this.ancho;
+  }
 }
