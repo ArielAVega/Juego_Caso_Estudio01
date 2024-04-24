@@ -2,6 +2,7 @@ private Personaje personaje;
 private JoyPad joyPad;
 private Habitacion habitacion;
 private SpawnerMonedas spawnerMonedas;
+private Enemigo enemigo;
 
 public void setup(){
   size(600,600);
@@ -12,6 +13,7 @@ public void setup(){
   personaje.setPosicion(new PVector(100,200));
   personaje.setVelocidad(new PVector(5,5));
   joyPad = new JoyPad();
+  enemigo = new Enemigo(new PVector(width/2, height/2));
 }
 
 public void draw(){
@@ -31,7 +33,7 @@ public void draw(){
   if(joyPad.isLeftPressed()){
     personaje.mover(3);
   }
-  
+  enemigo.display();  
   
 }
 
