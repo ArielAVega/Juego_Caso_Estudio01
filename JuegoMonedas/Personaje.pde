@@ -1,5 +1,4 @@
-class Personaje{
-  private PVector posicion;
+class Personaje extends GameObject{
   private PVector velocidad;
   
   public void display(){

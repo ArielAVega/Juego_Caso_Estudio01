@@ -1,5 +1,4 @@
-class Moneda{
-  private PVector posicion;
+class Moneda extends GameObject{
   private int diametro;
   
   public Moneda(){
