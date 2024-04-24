@@ -16,7 +16,11 @@ class Moneda{
   
   public void display(){
     fill(#F7F707);
-    circle(this.posicion.x,this.posicion.y,this.diametro);
+    ellipse(this.posicion.x,this.posicion.y,girar(),this.diametro);
   }
   
+  public int girar(){
+    int anchoMoneda = (int)(random(0,this.diametro));
+    return anchoMoneda;
+  }
 }
