@@ -1,5 +1,6 @@
 class Enemigo extends GameObject{
   private PVector velocidad;
+  private int diametro;
   
   public Enemigo(){
   }
@@ -12,20 +13,27 @@ class Enemigo extends GameObject{
     this.velocidad = velocidad;
   }
   
+  public Enemigo(PVector posicion, PVector velocidad, int diametro){
+    super(posicion);
+    this.velocidad = velocidad;
+    this.diametro = diametro;
+  }
+  
   
   public void display(){
     fill(#1E18EA);
     strokeWeight(5);
-    circle(this.posicion.x,this.posicion.y,40);
+    circle(this.posicion.x,this.posicion.y,this.diametro);
   }
   
   /**
   * permite mover el enemigo de manera vertical u horizantal
   * direccion = 0 moviento vertical - 1 movimiento horizontal
   */
-  public void mover(int direccion){
+  public void mover(int direccion, Habitacion habitacion){
     switch(direccion){
       case 0:{
+        cambiarSentidoVelocidad(direccion,habitacion);
         this.posicion.y+=this.velocidad.y;
         break;
       }
@@ -35,4 +43,25 @@ class Enemigo extends GameObject{
       }
     }
   }
+   
+  private void cambiarSentidoVelocidad(int direccion, Habitacion habitacion){
+    switch(direccion){
+      case 0:{
+        if(this.posicion.y - this.diametro/2 < habitacion.getPosicion().y){
+          this.velocidad.y*=(-1);
+          break;
+        }
+        if(this.posicion.y + this.diametro/2> habitacion.getPosicion().y+habitacion.getAlto()){
+          this.velocidad.y*=(-1);
+          break;
+        }
+      }
+    }
+       
+  }
+  
+  public PVector getPosicion(){
+    return this.posicion;
+  }
+  
 }
