@@ -15,10 +15,10 @@ class Habitacion{
     noStroke();
     fill(255);
     square(this.posicion.x,this.posicion.y,this.ancho);
-    int anchoCeramico = this.ancho/GestorConstantes.CANT_CERAMICOS_PISO;
+    int anchoCeramico = this.ancho/8;
     PVector posCeramico = new PVector(this.posicion.x,this.posicion.y);
     fill(#0CEADA);
-    for(int f=1;f<=GestorConstantes.CANT_CERAMICOS_PISO;f++){
+    for(int f=1;f<=8;f++){
       if(f%2!=0){
         posCeramico.x=this.posicion.x;
       }else{
@@ -39,9 +39,5 @@ class Habitacion{
   
   public int getAncho(){
     return this.ancho;
-  }
-  
-  public int getAlto(){
-    return this.alto;
   }
 }

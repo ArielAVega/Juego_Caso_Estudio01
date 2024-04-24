@@ -5,11 +5,11 @@ class Moneda extends GameObject{
   }
   
   public Moneda(PVector posicion){
-    super(posicion);
+    this.posicion = posicion;
   }
   
   public Moneda(PVector posicion, int diametro){
-    super(posicion);
+    this.posicion = posicion;
     this.diametro = diametro;
   }
   

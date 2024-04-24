@@ -6,7 +6,7 @@ class SpawnerMonedas{
   }
   
   public void generarMonedas(Habitacion habitacion){
-    int anchoCeramico = habitacion.getAncho()/GestorConstantes.CANT_CERAMICOS_PISO;
+    int anchoCeramico = habitacion.getAncho()/8;
     int diametroMoneda = (int)(anchoCeramico*0.8);
     monedas[0] = new Moneda(new PVector(habitacion.getPosicion().x+(anchoCeramico/2),habitacion.getPosicion().y+(anchoCeramico/2)), diametroMoneda);
     monedas[1] = new Moneda(new PVector(habitacion.getPosicion().x+habitacion.getAncho()-(anchoCeramico/2),habitacion.getPosicion().y+(anchoCeramico/2)), diametroMoneda);

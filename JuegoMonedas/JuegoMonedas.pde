@@ -2,27 +2,22 @@ private Personaje personaje;
 private JoyPad joyPad;
 private Habitacion habitacion;
 private SpawnerMonedas spawnerMonedas;
-private SpawnerEnemigos spawnerEnemigos;
 
 public void setup(){
   size(600,600);
-  habitacion = new Habitacion(500,500,0,new PVector(10,10));
+  habitacion = new Habitacion(400,400,0,new PVector(100,100));
   spawnerMonedas = new SpawnerMonedas();
   spawnerMonedas.generarMonedas(habitacion);
   personaje = new Personaje();
   personaje.setPosicion(new PVector(100,200));
   personaje.setVelocidad(new PVector(5,5));
   joyPad = new JoyPad();
-  spawnerEnemigos = new SpawnerEnemigos(4);
-  spawnerEnemigos.generarEnemigos(habitacion);
 }
 
 public void draw(){
   background(#5A5757);
   habitacion.dibujarPiso();
   spawnerMonedas.visualizarMonedas();
-  spawnerEnemigos.visualizarEnemigos();
-  spawnerEnemigos.moverEnemigos(0,habitacion);
   personaje.display();
   if(joyPad.isUpPressed()){
     personaje.mover(0);
@@ -36,6 +31,7 @@ public void draw(){
   if(joyPad.isLeftPressed()){
     personaje.mover(3);
   }
+  
   
 }
 
