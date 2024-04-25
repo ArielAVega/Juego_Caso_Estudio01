@@ -13,7 +13,7 @@ public void setup(){
   personaje.setPosicion(new PVector(100,200));
   personaje.setVelocidad(new PVector(5,5));
   joyPad = new JoyPad();
-  spawnerEnemigos = new SpawnerEnemigos(4);
+  spawnerEnemigos = new SpawnerEnemigosVerticales(4);
   spawnerEnemigos.generarEnemigos(habitacion);
 }
 
@@ -22,7 +22,7 @@ public void draw(){
   habitacion.dibujarPiso();
   spawnerMonedas.visualizarMonedas();
   spawnerEnemigos.visualizarEnemigos();
-  spawnerEnemigos.moverEnemigos(0,habitacion);
+  spawnerEnemigos.moverEnemigos(habitacion);
   personaje.display();
   if(joyPad.isUpPressed()){
     personaje.mover(0);
