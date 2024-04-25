@@ -38,6 +38,7 @@ class Enemigo extends GameObject{
         break;
       }
       case 1:{
+        cambiarSentidoVelocidad(direccion,habitacion);
         this.posicion.x+=this.velocidad.x;
         break;
       }
@@ -53,6 +54,16 @@ class Enemigo extends GameObject{
         }
         if(this.posicion.y + this.diametro/2> habitacion.getPosicion().y+habitacion.getAlto()){
           this.velocidad.y*=(-1);
+          break;
+        }
+      }
+      case 1:{
+        if(this.posicion.x - this.diametro/2 < habitacion.getPosicion().x){
+          this.velocidad.x*=(-1);
+          break;
+        }
+        if(this.posicion.x + this.diametro/2> habitacion.getPosicion().x+habitacion.getAncho()){
+          this.velocidad.x*=(-1);
           break;
         }
       }

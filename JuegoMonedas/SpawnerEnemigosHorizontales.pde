@@ -8,6 +8,28 @@ class SpawnerEnemigosHorizontales extends SpawnerEnemigos{
   }
   
   public void generarEnemigos(Habitacion habitacion){
+    int diametroEnemigo = habitacion.getAncho()/GestorConstantes.CANT_CERAMICOS_PISO;
+    enemigos[0] = new Enemigo(new PVector(habitacion.getPosicion().x+diametroEnemigo/2, 
+                                          habitacion.getPosicion().y+diametroEnemigo/2),
+                              new PVector(5,5),
+                              diametroEnemigo);
+                              
+    enemigos[enemigos.length-1] = new Enemigo(new PVector(habitacion.getPosicion().x+diametroEnemigo/2, 
+                                          habitacion.getPosicion().y+habitacion.getAlto()-diametroEnemigo/2),
+                              new PVector(5,5),
+                              diametroEnemigo);
+    
+    float distEntreEnemigosExtremos = enemigos[enemigos.length-1].getPosicion().y -
+                                      enemigos[0].getPosicion().y;
+    
+    float distEntreEnemigosConsecutivos = distEntreEnemigosExtremos / (enemigos.length - 1);
+    
+    for(int i=1;i<enemigos.length-1;i++){
+      enemigos[i] = new Enemigo(new PVector(enemigos[i-1].getPosicion().x, 
+                                          enemigos[i-1].getPosicion().y+distEntreEnemigosConsecutivos),
+                              new PVector(5,5),
+                              diametroEnemigo);
+    }
   }
   
   public void moverEnemigos(Habitacion habitacion){
