@@ -7,14 +7,14 @@ private SpawnerEnemigos spawnerEnemigos1;
 
 public void setup(){
   size(600,600);
-  habitacion = new Habitacion(600,600,0,new PVector(0,0));
+  habitacion = new Habitacion(500,500,0,new PVector(10,10));
   spawnerMonedas = new SpawnerMonedas();
   spawnerMonedas.generarMonedas(habitacion);
   personaje = new Personaje();
   personaje.setPosicion(new PVector(100,200));
   personaje.setVelocidad(new PVector(5,5));
   joyPad = new JoyPad();
-  spawnerEnemigos = new SpawnerEnemigosVerticales(3);
+  spawnerEnemigos = new SpawnerEnemigosVerticales(4);
   spawnerEnemigos.generarEnemigos(habitacion);
   spawnerEnemigos1 = new SpawnerEnemigosHorizontales(4);
   spawnerEnemigos1.generarEnemigos(habitacion);
